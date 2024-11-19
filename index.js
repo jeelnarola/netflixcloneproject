@@ -6,7 +6,7 @@ const app = express()
 app.use(cors());
 
 app.get('/home',(req,res)=>{
-    res.send({msg:"Home Page..."})
+    res.json({msg:"Home Page..."})
 })
 
 app.listen(8090,()=>{
