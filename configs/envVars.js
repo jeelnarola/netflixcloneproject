@@ -5,5 +5,6 @@ dotenv.config()
 export const ENV_VARS = {
     JWT_SECRET:process.env.JWT_SECRET,
     NODE_ENV:process.env.NODE_ENV,
-    TMDB_API_KEY:process.env.TMDB_API_KEY
+    TMDB_API_KEY:process.env.TMDB_API_KEY,
+    MONGODB_URL:process.env.MONGODB_URL
 }

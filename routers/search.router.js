@@ -4,10 +4,6 @@ import { getSearchHistory, removeItemFromSearchHistory, searchMovie, searchPerso
 
 const router = express.Router()
 
-// router.post("/signup",signup)
-// router.post("/login",login)
-// router.post("/logout",logout)
-
 router.get("/person/:query",searchPerson)
 router.get("/movie/:query",searchMovie)
 router.get("/tv/:query",searchTv)
