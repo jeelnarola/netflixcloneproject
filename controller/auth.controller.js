@@ -25,18 +25,18 @@ export async function signup(req,res) {
         const hashedPassword = await bcryptjs.hash(password,salt)
         const PROFILE_PICS=["/avatar1.png","/avatar2.png","/avatar3.png"]
         const image = PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
-        const newUser = new User ({
+       
+        let Usercreate = await User.create({
+            username,
             email,
             password:hashedPassword,
-            username,
             image
-        })
-            generateTokenAndSetCookie(newUser._id,res)
-            await newUser.save();
-            res.status(201).json({success:true,user:{
-                ...newUser._doc,
-                password:""
-            }})
+        });
+        generateTokenAndSetCookie(Usercreate._id,res)
+        res.status(201).json({success:true,user:{
+            ...Usercreate._doc,
+            password:""
+        }})
         
     } catch (error) {
         console.log("Error in signup controller", error.message)
