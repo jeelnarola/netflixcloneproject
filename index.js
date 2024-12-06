@@ -16,6 +16,10 @@ app.use("/api/v1/auth",authRouter)
 app.use("/api/v1/movie",movieRouter)
 app.use("/api/v1/tv",protectRoute,tvRouter)
 app.use("/api/v1/search",protectRoute,searchRouter)
+
+app.get('/',(req,res)=>{
+    res.status(201).json({success:true,message:"Welcome To Netflix Clone..."})
+})
 app.listen(8090,()=>{
     console.log("Server Strat")
     DataBase()
